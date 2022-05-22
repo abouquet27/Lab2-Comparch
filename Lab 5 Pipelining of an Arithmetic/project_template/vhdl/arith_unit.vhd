@@ -19,79 +19,8 @@ end arith_unit;
 -- =============================================================================
 
 architecture combinatorial of arith_unit is
-	signal s_bc, s_a_square, s_to_square : unsigned(15 downto 0);
 	signal s_square : unsigned(31 downto 0);
-	signal s_add1, s_add2, s_mult : unsigned(15 downto 0);
-	signal s_mult_result: unsigned(31 downto 0);
-	
-    component multiplier
-        port(
-            A, B : in  unsigned(7 downto 0);
-            P    : out unsigned(15 downto 0)
-        );
-    end component;
-
-    component multiplier16
-        port(
-            A, B : in  unsigned(15 downto 0);
-            P    : out unsigned(31 downto 0)
-        );
-    end component;
-
-begin
-	mult1: multiplier
-	PORT MAP(A => B,
-	B => C,
-	P => s_bc);
-	
-
-	mult2: multiplier
-	PORT MAP(A => A,
-	B => A,
-	P => s_a_square);
-	
-	s_to_square <= s_a_square when sel = '1' else s_bc;
-
-
-	s_add1 <= x"00" & A when sel = '0' else "0000000" & A & "0";
-	s_add2 <= s_add1 + B;
-
-	s_mult <= s_bc when sel = '0' else s_add2;
-
-	
-	mult3: multiplier16
-	PORT MAP(A => s_to_square,
-	B => s_to_square,
-	P => s_square);
-	
-	mult4: multiplier16
-	PORT MAP(A => s_add2,
-	B => s_mult,
-	P => s_mult_result);
-
-	D <= s_mult_result + s_square;
-	done <= start;
-
-	
-	
-
-	
-
-	
-	
-	
-	
-end combinatorial;
-
--- =============================================================================
--- ============================= 1 STAGE PIPELINE ==============================
--- =============================================================================
-
-architecture one_stage_pipeline of arith_unit is
-	signal s_bc, s_a_square, s_to_square : unsigned(15 downto 0);
-	signal s_square : unsigned(31 downto 0);
-	signal s_add1, s_add2, s_mult : unsigned(15 downto 0);
-	signal s_mult2, s_mult_bis, s_mult_bis2, s_add2_bis : unsigned(15 downto 0);
+	signal s_add1, s_add2, s_mult, s_mult2 : unsigned(15 downto 0);
 	signal s_mult_result: unsigned(31 downto 0);
 	signal A_prime, B_prime: unsigned(7 downto 0);
 	
@@ -110,7 +39,6 @@ architecture one_stage_pipeline of arith_unit is
     end component;
 
 begin
-	
 	A_prime <= A when sel = '1' else B;
 	B_prime <= A when sel = '1' else C;
 
@@ -118,45 +46,98 @@ begin
 	PORT MAP(A => A_prime,
 	B => B_prime,
 	P => s_mult);
-	
+
 
 	s_add1 <= x"00" & A when sel = '0' else "0000000" & A & "0";
 	s_add2 <= s_add1 + B;
 
 	s_mult2 <= s_mult when sel = '0' else s_add2;
-	
-		
-	dff: process(clk, reset_n)is 
-	begin
-		if(reset_n = '0') then
-			s_mult_bis2 <= x"0000";
-			s_mult_bis <= x"0000";
-			s_add2_bis <= x"0000";
-		elsif (rising_edge(clk)) then 
-			s_mult_bis2 <= s_mult2;
-			s_mult_bis <= s_mult;
-			s_add2_bis <= s_add2;
-		
-		end if;
-			
-	end process;
-		
-	
-	
 
+	
 	mult3: multiplier16
-	PORT MAP(A => s_mult_bis ,
-	B => s_mult_bis,
+	PORT MAP(A => s_mult,
+	B => s_mult,
 	P => s_square);
 	
-	
 	mult4: multiplier16
-	PORT MAP(A => s_add2_bis,
-	B => s_mult_bis2,
+	PORT MAP(A => s_add2,
+	B => s_mult2,
 	P => s_mult_result);
 
 	D <= s_mult_result + s_square;
 	done <= start;
+	
+end combinatorial;
+
+-- =============================================================================
+-- ============================= 1 STAGE PIPELINE ==============================
+-- =============================================================================
+
+architecture one_stage_pipeline of arith_unit is
+	signal s_done_copy: std_logic;
+	signal s_square : unsigned(31 downto 0);
+	signal s_add1, s_add2, s_mult, s_mult2 : unsigned(15 downto 0);
+	signal s_mult_result: unsigned(31 downto 0);
+	signal A_prime, B_prime: unsigned(7 downto 0);
+	signal s_mult_copy, s_mult2_copy, s_add2_copy: unsigned(15 downto 0);
+	
+    component multiplier
+        port(
+            A, B : in  unsigned(7 downto 0);
+            P    : out unsigned(15 downto 0)
+        );
+    end component;
+
+    component multiplier16
+        port(
+            A, B : in  unsigned(15 downto 0);
+            P    : out unsigned(31 downto 0)
+        );
+    end component;
+
+begin
+	A_prime <= A when sel = '1' else B;
+	B_prime <= A when sel = '1' else C;
+
+	mult2: multiplier
+	PORT MAP(A => A_prime,
+	B => B_prime,
+	P => s_mult);
+
+
+	s_add1 <= x"00" & A when sel = '0' else "0000000" & A & "0";
+	s_add2 <= s_add1 + B;
+
+	s_mult2 <= s_mult when sel = '0' else s_add2;
+
+	dff: process(clk, reset_n) is 
+		begin 
+			if (reset_n = '0') then 
+				s_mult_copy <= x"0000";
+				s_mult2_copy <= x"0000";
+				s_add2_copy <= x"0000";
+				s_done_copy <= '0';
+			elsif(rising_edge(clk)) then 
+				s_mult_copy <= s_mult;
+				s_mult2_copy <= s_mult2;
+				s_add2_copy <= s_add2;
+				s_done_copy <= start;
+			end if;
+	end process;
+
+	
+	mult3: multiplier16
+	PORT MAP(A => s_mult_copy,
+	B => s_mult_copy,
+	P => s_square);
+	
+	mult4: multiplier16
+	PORT MAP(A => s_add2_copy,
+	B => s_mult2_copy,
+	P => s_mult_result);
+
+	D <= s_mult_result + s_square;
+	done <= s_done_copy;
 	
 	
 end one_stage_pipeline;
@@ -166,28 +147,29 @@ end one_stage_pipeline;
 -- =============================================================================
 
 architecture two_stage_pipeline_1 of arith_unit is	
-	signal s_square, s_square_bis : unsigned(31 downto 0);
-	signal s_add1, s_add2, s_mult : unsigned(15 downto 0);
-	signal s_mult2, s_mult_bis, s_mult_bis2, s_add2_bis : unsigned(15 downto 0);
-	signal s_mult_result, s_mult_result_bis: unsigned(31 downto 0);
+	signal s_done_copy, s_done_copy_bis : std_logic;
+	signal s_square : unsigned(31 downto 0);
+	signal s_add1, s_add2, s_mult, s_mult2 : unsigned(15 downto 0);
+	signal s_mult_result: unsigned(31 downto 0);
 	signal A_prime, B_prime: unsigned(7 downto 0);
-	
-    component multiplier
-        port(
-            A, B : in  unsigned(7 downto 0);
-            P    : out unsigned(15 downto 0)
-        );
-    end component;
+	signal s_mult_copy, s_mult2_copy, s_add2_copy: unsigned(15 downto 0);
+	signal s_square_copy, s_mult_result_copy: unsigned(31 downto 0);
 
-    component multiplier16
-        port(
-            A, B : in  unsigned(15 downto 0);
-            P    : out unsigned(31 downto 0)
-        );
-    end component;
+	component multiplier
+		port(
+			A, B : in  unsigned(7 downto 0);
+			P    : out unsigned(15 downto 0)
+		);
+	end component;
 
-begin
-	
+	component multiplier16
+		port(
+			A, B : in  unsigned(15 downto 0);
+			P    : out unsigned(31 downto 0)
+		);
+	end component;
+
+	begin
 	A_prime <= A when sel = '1' else B;
 	B_prime <= A when sel = '1' else C;
 
@@ -195,57 +177,56 @@ begin
 	PORT MAP(A => A_prime,
 	B => B_prime,
 	P => s_mult);
-	
+
 
 	s_add1 <= x"00" & A when sel = '0' else "0000000" & A & "0";
 	s_add2 <= s_add1 + B;
 
 	s_mult2 <= s_mult when sel = '0' else s_add2;
-	
-		
-	dff: process(clk, reset_n)is 
-	begin
-		if(reset_n = '0') then
-			s_mult_bis2 <= x"0000";
-			s_mult_bis <= x"0000";
-			s_add2_bis <= x"0000";
-		elsif (rising_edge(clk)) then 
-			s_mult_bis2 <= s_mult2;
-			s_mult_bis <= s_mult;
-			s_add2_bis <= s_add2;
-		
-		end if;
-			
+
+	dff: process(clk, reset_n) is 
+		begin 
+			if (reset_n = '0') then 
+				s_mult_copy <= x"0000";
+				s_mult2_copy <= x"0000";
+				s_add2_copy <= x"0000";
+				s_done_copy <= '0';
+			elsif(rising_edge(clk)) then 
+				s_mult_copy <= s_mult;
+				s_mult2_copy <= s_mult2;
+				s_add2_copy <= s_add2;
+				s_done_copy <= start;
+			end if;
 	end process;
-	
+
 
 	mult3: multiplier16
-	PORT MAP(A => s_mult_bis ,
-	B => s_mult_bis,
+	PORT MAP(A => s_mult_copy,
+	B => s_mult_copy,
 	P => s_square);
-	
-	
+
 	mult4: multiplier16
-	PORT MAP(A => s_add2_bis,
-	B => s_mult_bis2,
+	PORT MAP(A => s_add2_copy,
+	B => s_mult2_copy,
 	P => s_mult_result);
-		
-	dff1: process(clk, reset_n)is 
-	begin
-		if(reset_n = '0') then
-			s_mult_result_bis <= x"00000000";
-			s_square_bis <= x"00000000";
-		elsif (rising_edge(clk)) then 
-			s_mult_result_bis <= s_mult_result;
-			s_square_bis <= s_square;
-		
+
+	dff1: process(clk, reset_n) is 
+	begin 
+		if (reset_n = '0') then 
+			s_square_copy <= x"00000000";
+			s_mult_result_copy <= x"00000000";
+			s_done_copy_bis <= '0';
+		elsif(rising_edge(clk)) then 
+			s_square_copy <= s_square;
+			s_mult_result_copy <= s_mult_result;
+			s_done_copy_bis <= s_done_copy;
 		end if;
-			
 	end process;
 
-	D <= s_mult_result_bis + s_square_bis;
-	done <= start;
-	
+	D <= s_mult_result_copy + s_square_copy;
+	done <= s_done_copy_bis;
+
+		
 	
 end two_stage_pipeline_1;
 
@@ -254,6 +235,12 @@ end two_stage_pipeline_1;
 -- =============================================================================
 
 architecture two_stage_pipeline_2 of arith_unit is
+	signal s_done_copy: std_logic;
+	signal s_square : unsigned(31 downto 0);
+	signal s_add1, s_add2, s_mult, s_mult2 : unsigned(15 downto 0);
+	signal s_mult_result: unsigned(31 downto 0);
+	signal A_prime, B_prime: unsigned(7 downto 0);
+	signal s_mult_copy, s_mult2_copy, s_add2_copy: unsigned(15 downto 0);
     component multiplier
         port(
             A, B : in  unsigned(7 downto 0);
@@ -271,4 +258,50 @@ architecture two_stage_pipeline_2 of arith_unit is
     end component;
 
 begin
+	A_prime <= A when sel = '1' else B;
+	B_prime <= A when sel = '1' else C;
+
+	mult2: multiplier
+	PORT MAP(A => A_prime,
+		B => B_prime,
+		P => s_mult);
+
+
+	s_add1 <= x"00" & A when sel = '0' else "0000000" & A & "0";
+	s_add2 <= s_add1 + B;
+
+	s_mult2 <= s_mult when sel = '0' else s_add2;
+
+	dff: process(clk, reset_n) is 
+		begin 
+			if (reset_n = '0') then 
+				s_mult_copy <= x"0000";
+				s_mult2_copy <= x"0000";
+				s_add2_copy <= x"0000";
+				s_done_copy <= '0';
+			elsif(rising_edge(clk)) then 
+				s_mult_copy <= s_mult;
+				s_mult2_copy <= s_mult2;
+				s_add2_copy <= s_add2;
+				s_done_copy <= start;
+			end if;
+	end process;
+
+	
+	mult3: multiplier16_pipeline
+	PORT MAP(clk => clk,
+	reset_n => reset_n,
+	A => s_mult_copy,
+	B => s_mult_copy,
+	P => s_square);
+	
+	mult4: multiplier16_pipeline
+	PORT MAP(clk => clk,
+	reset_n => reset_n,
+	A => s_add2_copy,
+	B => s_mult2_copy,
+	P => s_mult_result);
+
+	D <= s_mult_result + s_square;
+	done <= s_done_copy;
 end two_stage_pipeline_2;
