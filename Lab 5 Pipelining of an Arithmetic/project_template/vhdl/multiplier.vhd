@@ -117,8 +117,7 @@ end multiplier16_pipeline;
 
 architecture pipeline of multiplier16_pipeline is
 	signal a1_b1, a2_b1, a1_b2, a2_b2 : unsigned(15 downto 0);
-	signal a1_b1_copy, a2_b1_copy, a1_b2_copy, a2_b2_copy : unsigned(15 downto 0);
-	signal s_out1, s_out2, s_out3: unsigned(31 downto 0);
+	signal s_out1, s_out2, s_out3, s_out3_copy: unsigned(31 downto 0);
     -- 8-bit multiplier component declaration
     component multiplier
         port(
@@ -126,7 +125,7 @@ architecture pipeline of multiplier16_pipeline is
             P    : out unsigned(15 downto 0)
         );
     end component;
-
+ 
 
 begin
 	mult1: multiplier
@@ -147,23 +146,18 @@ begin
 		B => B(15 downto 8),
 		P => a2_b2);
 	
-	dff : process(clk, reset_n) is
-		begin
-			if(reset_n = '0') then
-				a1_b1_copy <= x"0000";
-				a1_b2_copy <= x"0000";
-				a2_b1_copy <= x"0000";
-				a2_b2_copy <= x"0000";
-			elsif(rising_edge(clk)) then
-				a1_b1_copy <= a1_b1;
-				a1_b2_copy <= a1_b2;
-				a2_b1_copy <= a2_b1;
-				a2_b2_copy <= a2_b2;
+	s_out1 <= x"0000" & a1_b1;
+	s_out2 <= s_out1 + ((a1_b2 + a2_b1) & x"00");
+	s_out3 <= s_out2 + (a2_b2 & x"0000");
 
-		end if;				
+	dff: process(clk, reset_n) is
+		begin 
+			if (reset_n = '0') then 
+				s_out3_copy <= x"00000000";
+			elsif (rising_edge(clk)) then
+				s_out3_copy <= s_out3;
+			end if;
+		
 	end process;
-	s_out1 <= x"0000" & a1_b1_copy;
-	s_out2 <= s_out1 + ((a1_b2_copy + a2_b1_copy) & x"00");
-	s_out3 <= s_out2 + (a2_b2_copy & x"0000");
-	P <= s_out3;
+	P <= s_out3_copy;
 end pipeline;

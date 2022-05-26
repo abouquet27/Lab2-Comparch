@@ -10,6 +10,7 @@ entity pipeline_reg_MW is
         mux_1_in    : in  std_logic_vector(31 downto 0);
         rf_wren_in  : in  std_logic;
         mux_2_in    : in  std_logic_vector(4 downto 0);
+        --out
         mux_1_out   : out std_logic_vector(31 downto 0);
         rf_wren_out : out std_logic;
         mux_2_out   : out std_logic_vector(4 downto 0)
@@ -17,8 +18,29 @@ entity pipeline_reg_MW is
 end pipeline_reg_MW;
 
 architecture synth of pipeline_reg_MW is
+    signal rf_wren_in_reg : std_logic;
+    signal mux_1_in_reg : std_logic_vector(31 downto 0);
+    signal mux_2_in_reg : std_logic_vector(4 downto 0);
 
 begin
+
+    dff : process(clk, reset_n) is 
+    begin
+        if (reset_n = '0') then 
+            rf_wren_in_reg <= '0';
+            mux_1_in_reg <= (others => '0');
+            mux_2_in_reg <= (others => '0');
+        elsif (rising_edge(clk)) then
+            rf_wren_in_reg <= rf_wren_in;
+            mux_1_in_reg <= mux_1_in;
+            mux_2_in_reg <= mux_2_in;
+        end if;
+    end process ; -- identifier
    
+    rf_wren_out <= rf_wren_in_reg;
+    mux_1_out <= mux_1_in_reg;
+    mux_2_out <= mux_2_in_reg;
+
+
 
 end synth;
