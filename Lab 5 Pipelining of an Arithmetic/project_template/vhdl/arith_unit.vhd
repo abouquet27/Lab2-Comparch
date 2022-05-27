@@ -235,7 +235,7 @@ end two_stage_pipeline_1;
 -- =============================================================================
 
 architecture two_stage_pipeline_2 of arith_unit is
-	signal s_done_copy: std_logic;
+	signal s_done_copy, s_done_copy_bis: std_logic;
 	signal s_square : unsigned(31 downto 0);
 	signal s_add1, s_add2, s_mult, s_mult2 : unsigned(15 downto 0);
 	signal s_mult_result: unsigned(31 downto 0);
@@ -302,6 +302,15 @@ begin
 	B => s_mult2_copy,
 	P => s_mult_result);
 
+	dff1: process(clk, reset_n) is 
+	begin 
+		if (reset_n = '0') then 
+			s_done_copy_bis <= '0';
+		elsif(rising_edge(clk)) then 
+			s_done_copy_bis <= s_done_copy;
+		end if;
+	end process;
+
 	D <= s_mult_result + s_square;
-	done <= s_done_copy;
+	done <= s_done_copy_bis;
 end two_stage_pipeline_2;
