@@ -1,0 +1,262 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 5 Pipelining of an Arithmetic/project_template/modelsim
+Econtroller
+Z0 w1653553342
+Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z2 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z3 dC:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/modelsim
+Z4 8C:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/controller.vhd
+Z5 FC:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/controller.vhd
+l0
+L4
+V:1Q0ibHG;<[lABbRCeA5H1
+!s100 [oQZccY[KG@XObh;`><2T0
+Z6 OV;C;10.4d;61
+32
+Z7 !s110 1653556383
+!i10b 1
+Z8 !s108 1653556383.000000
+Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/controller.vhd|
+Z10 !s107 C:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/controller.vhd|
+!i113 1
+Z11 o-work work -2002 -explicit
+Z12 tExplicit 1
+Asynth
+R1
+R2
+DEx4 work 10 controller 0 22 :1Q0ibHG;<[lABbRCeA5H1
+l27
+L25
+V`?AKnVmNN;:>:E55^J<`N0
+!s100 k5?WinjCV]gg<3X5G<1dc2
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Epc
+Z13 w1653549917
+Z14 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+R1
+R2
+R3
+Z15 8C:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/PC.vhd
+Z16 FC:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/PC.vhd
+l0
+L5
+V8:J?2Y]6RVXeoV`T<VTCL2
+!s100 m_XTG;F0^U4ejFzXL7Z[Z3
+R6
+32
+R7
+!i10b 1
+R8
+Z17 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/PC.vhd|
+Z18 !s107 C:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/PC.vhd|
+!i113 1
+R11
+R12
+Asynth
+R14
+R1
+R2
+DEx4 work 2 pc 0 22 8:J?2Y]6RVXeoV`T<VTCL2
+l28
+L21
+VG;g<BJ5H>N?b_zVi1:TB23
+!s100 I=>D=OF4LM_i0L]NTVG742
+R6
+32
+R7
+!i10b 1
+R8
+R17
+R18
+!i113 1
+R11
+R12
+Epipeline_reg_de
+Z19 w1653555789
+Z20 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z21 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+R1
+R2
+R3
+Z22 8C:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/pipeline_reg_DE.vhd
+Z23 FC:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/pipeline_reg_DE.vhd
+l0
+L6
+VQMYU[]hjH_fPeHOPMcV^c3
+!s100 YodK7W_]bJGBfiFE1Z6NK2
+R6
+32
+R7
+!i10b 1
+R8
+Z24 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/pipeline_reg_DE.vhd|
+Z25 !s107 C:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/pipeline_reg_DE.vhd|
+!i113 1
+R11
+R12
+Asynth
+R20
+R21
+R1
+R2
+DEx4 work 15 pipeline_reg_de 0 22 QMYU[]hjH_fPeHOPMcV^c3
+l47
+L40
+V=1ReD;f7UhgJ[NZjkQ3Ve2
+!s100 0U1em0QXkBF1]@M=FfT1K1
+R6
+32
+R7
+!i10b 1
+R8
+R24
+R25
+!i113 1
+R11
+R12
+Epipeline_reg_em
+Z26 w1653556312
+R20
+R21
+R1
+R2
+R3
+Z27 8C:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/pipeline_reg_EM.vhd
+Z28 FC:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/pipeline_reg_EM.vhd
+l0
+L6
+V2Uo34D9]JF5E2@9d<^Ueo0
+!s100 EYJ>S9=41PF:4Z=haY8]J0
+R6
+32
+R7
+!i10b 1
+R8
+Z29 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/pipeline_reg_EM.vhd|
+Z30 !s107 C:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/pipeline_reg_EM.vhd|
+!i113 1
+R11
+R12
+Asynth
+R20
+R21
+R1
+R2
+DEx4 work 15 pipeline_reg_em 0 22 2Uo34D9]JF5E2@9d<^Ueo0
+l27
+L22
+V`RehCzonhiNECe=?7M81c3
+!s100 Fl?FRDkeH@Se>oCnBlf5V1
+R6
+32
+R7
+!i10b 1
+R8
+R29
+R30
+!i113 1
+R11
+R12
+Epipeline_reg_fd
+Z31 w1653554029
+R20
+R21
+R1
+R2
+R3
+Z32 8C:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/pipeline_reg_FD.vhd
+Z33 FC:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/pipeline_reg_FD.vhd
+l0
+L6
+VhNJI5dPFoOdz`a7KBSQZ^2
+!s100 EZM3RWDK3iaj]LeJkBYcJ3
+R6
+32
+R7
+!i10b 1
+R8
+Z34 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/pipeline_reg_FD.vhd|
+Z35 !s107 C:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/pipeline_reg_FD.vhd|
+!i113 1
+R11
+R12
+Asynth
+R20
+R21
+R1
+R2
+DEx4 work 15 pipeline_reg_fd 0 22 hNJI5dPFoOdz`a7KBSQZ^2
+l21
+L17
+V^MTg?[JY^f?`;WE8gDCZd3
+!s100 ROWd2B^R=FWPZ9g7SfX6l1
+R6
+32
+R7
+!i10b 1
+R8
+R34
+R35
+!i113 1
+R11
+R12
+Epipeline_reg_mw
+Z36 w1653556363
+R20
+R21
+R1
+R2
+R3
+Z37 8C:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/pipeline_reg_MW.vhd
+Z38 FC:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/pipeline_reg_MW.vhd
+l0
+L6
+VgX:nhM82133@lMfEmQah42
+!s100 z2b0nnlD4BR3Jal@W:D7X1
+R6
+32
+R7
+!i10b 1
+R8
+Z39 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/pipeline_reg_MW.vhd|
+Z40 !s107 C:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/pipeline_reg_MW.vhd|
+!i113 1
+R11
+R12
+Asynth
+R20
+R21
+R1
+R2
+DEx4 work 15 pipeline_reg_mw 0 22 gX:nhM82133@lMfEmQah42
+l25
+L20
+V@zAM[91fO^2_mGTY4[]lK1
+!s100 adTdko3:_HVg8739SNe8j1
+R6
+32
+R7
+!i10b 1
+R8
+R39
+R40
+!i113 1
+R11
+R12

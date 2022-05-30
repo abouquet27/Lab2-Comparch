@@ -1,0 +1,42 @@
+{C:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/controller.vhd} {2 {vcom -work work -2002 -explicit -stats=none {C:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/controller.vhd}
+Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity controller
+-- Compiling architecture synth of controller
+** Warning: C:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/controller.vhd(57): (vcom-1186) Array type case expression must be of a locally static subtype.
+
+** Warning: C:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/controller.vhd(59): (vcom-1186) Array type case expression must be of a locally static subtype.
+
+
+} {} {}} {C:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/pipeline_reg_FD.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/pipeline_reg_FD.vhd}
+Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity pipeline_reg_FD
+-- Compiling architecture synth of pipeline_reg_FD
+
+} {} {}} {C:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/PC.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/PC.vhd}
+Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity PC
+-- Compiling architecture synth of PC
+
+} {} {}} {C:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/pipeline_reg_DE.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Adrien Bouquet/Documents/EPFL/BA4/CompArch2/Labs/Lab2-Comparch/Lab 7 Pipelining the Nios II/project_template/vhdl/pipeline_reg_DE.vhd}
+Model Technology ModelSim ALTERA vcom 10.4d Compiler 2015.12 Dec 30 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity pipeline_reg_DE
+-- Compiling architecture synth of pipeline_reg_DE
+
+} {} {}}
