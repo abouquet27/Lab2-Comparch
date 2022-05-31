@@ -32,8 +32,8 @@ begin
 
 
     s_next_addr <= std_logic_vector(unsigned(s_add1) + unsigned(s_add2))    when sel_imm = '0' and sel_a = '0' else -- BRANCH           : PC <= PC + signed(imm)
-                   std_logic_vector(unsigned(a) + to_unsigned(4, 16))       when sel_imm = '1' and sel_a = '0' else -- CALL | JMPI      : PC <= imm << 2
-                   d_imm(13 downto 0) & "00"                                when sel_imm = '0' and sel_a = '1' else -- CALLR | JMP | RET: PC <= a
+                   std_logic_vector(unsigned(a) + to_unsigned(4, 16))       when sel_imm = '0' and sel_a = '1' else -- CALL | JMPI      : PC <= imm << 2
+                   d_imm(13 downto 0) & "00"                                when sel_imm = '1' and sel_a = '0' else -- CALLR | JMP | RET: PC <= a
                    (OTHERS => 'Z');                         -- Other states     : PC <= PC + 4
 
     addr <= s_next_addr;

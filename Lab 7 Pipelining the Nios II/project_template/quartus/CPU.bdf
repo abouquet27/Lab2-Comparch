@@ -209,7 +209,7 @@ agreement for further details.
 	)
 )
 (symbol
-	(rect 816 -256 968 -112)
+	(rect 912 -256 1064 -112)
 	(text "register_file" (rect 5 0 112 14)(font "Arial" ))
 	(text "register_file_0" (rect 8 128 131 142)(font "Arial" ))
 	(port
@@ -270,42 +270,6 @@ agreement for further details.
 	)
 	(drawing
 		(rectangle (rect 16 16 136 128))
-	)
-)
-(symbol
-	(rect -24 -376 88 -280)
-	(text "IR" (rect 5 0 21 14)(font "Arial" ))
-	(text "IR_0" (rect 8 80 41 94)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "clk" (rect 0 0 24 14)(font "Arial" ))
-		(text "clk" (rect 21 27 45 41)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "enable" (rect 0 0 49 14)(font "Arial" ))
-		(text "enable" (rect 21 43 70 57)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "D[31..0]" (rect 0 0 66 14)(font "Arial" ))
-		(text "D[31..0]" (rect 21 59 87 73)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64)(line_width 3))
-	)
-	(port
-		(pt 112 32)
-		(output)
-		(text "Q[31..0]" (rect -24 0 42 14)(font "Arial" ))
-		(text "Q[31..0]" (rect 51 27 117 41)(font "Arial" ))
-		(line (pt 112 32)(pt 96 32)(line_width 3))
-	)
-	(drawing
-		(rectangle (rect 16 16 96 80))
 	)
 )
 (symbol
@@ -415,45 +379,6 @@ agreement for further details.
 		(pt 56 48)
 		(output)
 		(text "o[4..0]" (rect -120 0 -63 14)(font "Arial" ))
-		(text "O" (rect 48 32 56 46)(font "Arial" )(invisible))
-		(line (pt 56 48)(pt 40 48)(line_width 3))
-	)
-	(drawing
-		(line (pt 16 16)(pt 40 32))
-		(line (pt 16 80)(pt 40 64))
-		(line (pt 16 16)(pt 16 80))
-		(line (pt 40 32)(pt 40 64))
-	)
-)
-(symbol
-	(rect 24 -280 80 -184)
-	(text "mux2x16" (rect 0 0 57 14)(font "Arial" ))
-	(text "mux_addr" (rect 0 80 66 94)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "i0[15..0]" (rect 0 0 74 14)(font "Arial" ))
-		(text "0" (rect 24 32 32 46)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "i1[15..0]" (rect 0 0 74 14)(font "Arial" ))
-		(text "1" (rect 24 56 32 70)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64)(color 0 128 255)(line_width 3))
-	)
-	(port
-		(pt 32 96)
-		(input)
-		(text "sel" (rect 0 0 24 14)(font "Arial" ))
-		(text "sel" (rect 40 72 54 96)(font "Arial" )(vertical))
-		(line (pt 32 72)(pt 32 96)(color 0 128 255))
-	)
-	(port
-		(pt 56 48)
-		(output)
-		(text "o[15..0]" (rect -120 0 -54 14)(font "Arial" ))
 		(text "O" (rect 48 32 56 46)(font "Arial" )(invisible))
 		(line (pt 56 48)(pt 40 48)(line_width 3))
 	)
@@ -1144,42 +1069,6 @@ agreement for further details.
 	)
 )
 (symbol
-	(rect 152 -344 264 -248)
-	(text "IR" (rect 5 0 21 14)(font "Arial" ))
-	(text "inst" (rect 8 80 41 94)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "clk" (rect 0 0 24 14)(font "Arial" ))
-		(text "clk" (rect 21 27 45 41)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "enable" (rect 0 0 49 14)(font "Arial" ))
-		(text "enable" (rect 21 43 70 57)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "D[31..0]" (rect 0 0 66 14)(font "Arial" ))
-		(text "D[31..0]" (rect 21 59 87 73)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64)(line_width 3))
-	)
-	(port
-		(pt 112 32)
-		(output)
-		(text "Q[31..0]" (rect -24 0 42 14)(font "Arial" ))
-		(text "Q[31..0]" (rect 36 27 102 41)(font "Arial" ))
-		(line (pt 112 32)(pt 96 32)(line_width 3))
-	)
-	(drawing
-		(rectangle (rect 16 16 96 80))
-	)
-)
-(symbol
 	(rect 856 -24 1040 56)
 	(text "extend" (rect 5 0 54 14)(font "Arial" ))
 	(text "inst1" (rect 8 64 49 78)(font "Arial" ))
@@ -1303,12 +1192,6 @@ agreement for further details.
 	(bus)
 )
 (connector
-	(text "opx[16..11]" (rect 826 224 916 238)(font "Arial" ))
-	(pt 760 240)
-	(pt 896 240)
-	(bus)
-)
-(connector
 	(pt 1096 432)
 	(pt 1112 432)
 )
@@ -1323,18 +1206,6 @@ agreement for further details.
 (connector
 	(pt 960 616)
 	(pt 960 592)
-)
-(connector
-	(text "aw2[21..17]" (rect 810 544 900 558)(font "Arial" ))
-	(pt 760 560)
-	(pt 928 560)
-	(bus)
-)
-(connector
-	(text "aw1[26..22]" (rect 810 512 900 526)(font "Arial" ))
-	(pt 760 528)
-	(pt 928 528)
-	(bus)
 )
 (connector
 	(pt 760 240)
@@ -1393,20 +1264,8 @@ agreement for further details.
 	(bus)
 )
 (connector
-	(text "imm16[21..6]" (rect 784 -8 883 6)(font "Arial" ))
-	(pt 760 8)
-	(pt 856 8)
-	(bus)
-)
-(connector
 	(pt 816 24)
 	(pt 856 24)
-)
-(connector
-	(text "op[5..0]" (rect 786 128 852 142)(font "Arial" ))
-	(pt 760 144)
-	(pt 888 144)
-	(bus)
 )
 (connector
 	(pt 32 240)
@@ -1450,7 +1309,7 @@ agreement for further details.
 	(bus)
 )
 (connector
-	(text "Instr[31..0]" (rect 640 208 739 222)(font "Arial" ))
+	(text "Instr[31..0]" (rect 632 192 731 206)(font "Arial" ))
 	(pt 624 224)
 	(pt 760 224)
 	(bus)
@@ -1531,11 +1390,6 @@ agreement for further details.
 (connector
 	(pt 1352 320)
 	(pt 1352 208)
-)
-(connector
-	(pt 1072 112)
-	(pt 1488 112)
-	(bus)
 )
 (connector
 	(pt 1272 128)
@@ -1680,11 +1534,6 @@ agreement for further details.
 (connector
 	(pt 2016 -24)
 	(pt 2016 -8)
-	(bus)
-)
-(connector
-	(pt 1744 80)
-	(pt 1816 80)
 	(bus)
 )
 (connector
@@ -1943,12 +1792,6 @@ agreement for further details.
 	(pt 3160 136)
 )
 (connector
-	(text "aw" (rect 3098 136 3114 150)(font "Arial" ))
-	(pt 3088 152)
-	(pt 3144 152)
-	(bus)
-)
-(connector
 	(text "sel_branch" (rect 2192 232 2274 246)(font "Arial" ))
 	(pt 2192 248)
 	(pt 2232 248)
@@ -2081,41 +1924,72 @@ agreement for further details.
 	(bus)
 )
 (connector
-	(text "aa[31..27]" (rect 754 -224 836 -210)(font "Arial" ))
-	(pt 768 -208)
-	(pt 816 -208)
-	(bus)
-)
-(connector
-	(text "ab[26..22]" (rect 752 -208 834 -194)(font "Arial" ))
-	(pt 768 -192)
-	(pt 816 -192)
-	(bus)
-)
-(connector
-	(pt 360 -224)
-	(pt 816 -224)
-)
-(connector
 	(pt 360 224)
 	(pt 360 -224)
 )
 (connector
-	(text "wrdata" (rect 3090 104 3139 118)(font "Arial" ))
+	(text "a[31..0]" (rect 1074 -240 1140 -226)(font "Arial" ))
+	(pt 1064 -224)
+	(pt 1120 -224)
+	(bus)
+)
+(connector
+	(text "b[31..0]" (rect 1074 -176 1140 -162)(font "Arial" ))
+	(pt 1064 -160)
+	(pt 1120 -160)
+	(bus)
+)
+(connector
+	(text "aw[4..0]" (rect 872 -192 938 -178)(font "Arial" ))
+	(pt 872 -176)
+	(pt 912 -176)
+	(bus)
+)
+(connector
+	(text "wren" (rect 882 -176 915 -162)(font "Arial" ))
+	(pt 872 -160)
+	(pt 912 -160)
+)
+(connector
+	(pt 0 224)
+	(pt 360 224)
+)
+(connector
+	(pt 360 224)
+	(pt 368 224)
+)
+(connector
+	(pt 768 -192)
+	(pt 768 -112)
+	(bus)
+)
+(connector
+	(pt 360 -224)
+	(pt 912 -224)
+)
+(connector
+	(text "wrdata[31..0]" (rect 744 -160 851 -146)(font "Arial" ))
+	(pt 744 -144)
+	(pt 912 -144)
+	(bus)
+)
+(connector
+	(text "wrdata[31..0]" (rect 3090 104 3197 118)(font "Arial" ))
 	(pt 3088 120)
 	(pt 3144 120)
 	(bus)
 )
 (connector
-	(text "aw[4..0]" (rect 776 -192 842 -178)(font "Arial" ))
-	(pt 816 -176)
-	(pt 776 -176)
+	(text "d_imm[31..0]" (rect 1082 96 1181 110)(font "Arial" ))
+	(pt 1072 112)
+	(pt 1488 112)
 	(bus)
 )
 (connector
-	(text "wren" (rect 786 -176 819 -162)(font "Arial" ))
-	(pt 816 -160)
-	(pt 776 -160)
+	(text "Instr[5..0]" (rect 794 120 884 134)(font "Arial" ))
+	(pt 760 144)
+	(pt 888 144)
+	(bus)
 )
 (connector
 	(pt 768 -240)
@@ -2128,34 +2002,51 @@ agreement for further details.
 	(bus)
 )
 (connector
+	(text "Instr[31..27]" (rect 810 -224 917 -210)(font "Arial" ))
+	(pt 768 -208)
+	(pt 912 -208)
+	(bus)
+)
+(connector
+	(text "Instr[26..22]" (rect 848 -208 955 -194)(font "Arial" ))
 	(pt 768 -192)
-	(pt 768 -112)
+	(pt 912 -192)
 	(bus)
 )
 (connector
-	(pt 0 224)
-	(pt 360 224)
-)
-(connector
-	(pt 360 224)
-	(pt 368 224)
-)
-(connector
-	(text "a[31..0]" (rect 978 -240 1044 -226)(font "Arial" ))
-	(pt 968 -224)
-	(pt 1024 -224)
+	(text "aw[4..0]" (rect 3098 136 3164 150)(font "Arial" ))
+	(pt 3088 152)
+	(pt 3144 152)
 	(bus)
 )
 (connector
-	(text "b[31..0]" (rect 978 -176 1044 -162)(font "Arial" ))
-	(pt 968 -160)
-	(pt 1024 -160)
+	(text "Instr[21..6]" (rect 784 -8 883 6)(font "Arial" ))
+	(pt 760 8)
+	(pt 856 8)
 	(bus)
 )
 (connector
-	(text "wrdata[31..0]" (rect 648 -160 755 -146)(font "Arial" ))
-	(pt 648 -144)
-	(pt 816 -144)
+	(text "Instr[16..11]" (rect 826 224 933 238)(font "Arial" ))
+	(pt 760 240)
+	(pt 896 240)
+	(bus)
+)
+(connector
+	(text "Instr[26..22]" (rect 810 512 917 526)(font "Arial" ))
+	(pt 760 528)
+	(pt 928 528)
+	(bus)
+)
+(connector
+	(text "Instr[21..17]" (rect 810 544 917 558)(font "Arial" ))
+	(pt 760 560)
+	(pt 928 560)
+	(bus)
+)
+(connector
+	(text "e_imm[31..0]" (rect 1744 64 1843 78)(font "Arial" ))
+	(pt 1744 80)
+	(pt 1816 80)
 	(bus)
 )
 (junction (pt -8 352))

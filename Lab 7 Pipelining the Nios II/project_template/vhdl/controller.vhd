@@ -147,7 +147,7 @@ begin
               "000" & op(5 downto 3) when ("00" & op) = x"04" else -- addi    operation
               "000" & op(5 downto 3) when ("00" & op) = x"17" else -- ldw     operation
               "000" & op(5 downto 3) when ("00" & op) = x"15" else -- stw     operation
-              "011" & op(5 downto 3) when ("00" & op) = x"06" else -- br      operation
+              "011100"               when ("00" & op) = x"06" else -- br      operation
               "011" & op(5 downto 3) when ("00" & op) = x"0E" else -- ble     operation
               "011" & op(5 downto 3) when ("00" & op) = x"16" else -- bgt     operation
               "011" & op(5 downto 3) when ("00" & op) = x"1E" else -- bne     operation
