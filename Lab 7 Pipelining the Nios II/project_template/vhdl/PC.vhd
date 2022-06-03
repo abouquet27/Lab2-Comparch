@@ -28,7 +28,7 @@ architecture synth of PC is
 begin
 
     s_add1 <= s_current_addr when branch = '0' else pc_addr;
-    s_add2 <= std_logic_vector(to_unsigned(4, 16)) when branch = '0' else std_logic_vector(signed(e_imm) + 4);
+    s_add2 <= std_logic_vector(to_unsigned(4, 16)) when branch = '0' else std_logic_vector(unsigned(e_imm) + 4);
 
 
     s_next_addr <= std_logic_vector(unsigned(s_add1) + unsigned(s_add2))    when sel_imm = '0' and sel_a = '0' else -- BRANCH           : PC <= PC + signed(imm)
@@ -49,7 +49,7 @@ begin
         end if;
     end process;
 
-    next_addr <= s_current_addr(15 downto 2) & "00";
+    next_addr <= s_current_addr;
     
 
 end synth;
