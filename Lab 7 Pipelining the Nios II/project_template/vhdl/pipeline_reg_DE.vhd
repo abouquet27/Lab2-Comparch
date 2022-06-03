@@ -48,47 +48,35 @@ begin
     dff : process(clk, reset_n) is 
     begin
         if (reset_n = '0') then 
-            a_in_reg <= (others => '0');
-            b_in_reg <= (others => '0');
-            d_imm_in_reg <= (others => '0');
-            sel_b_in_reg <= '0'; 
-            read_in_reg <= '0';
-            write_in_reg <= '0'; 
-            sel_pc_in_reg <= '0';
-            branch_op_in_reg <= '0';
-            sel_mem_in_reg <= '0';
-            rf_wren_in_reg <= '0';
-            mux_in_reg <= (others => '0');
-            next_addr_in_reg <= (others => '0');
+            a_out <= (others => '0');
+            b_out <= (others => '0');
+            d_imm_out <= (others => '0');
+            sel_b_out <= '0'; 
+            read_out <= '0';
+            write_out <= '0'; 
+            sel_pc_out <= '0';
+            branch_op_out <= '0';
+            sel_mem_out <= '0';
+            rf_wren_out <= '0';
+            op_alu_out <= (others => '0');
+            mux_out <= (others => '0');
+            next_addr_out <= (others => '0');
 
         elsif (rising_edge(clk)) then 
-            a_in_reg <= a_in;
-            b_in_reg <= b_in;
-            d_imm_in_reg <= d_imm_in;
-            sel_b_in_reg <= sel_b_in; 
-            read_in_reg <= read_in;
-            write_in_reg <= write_in; 
-            sel_pc_in_reg <= sel_pc_in;
-            branch_op_in_reg <= branch_op_in;
-            sel_mem_in_reg <= sel_mem_in;
-            rf_wren_in_reg <= rf_wren_in;
-            mux_in_reg <= mux_in;
-            next_addr_in_reg <= next_addr_in;
+            a_out <= a_in;
+            b_out <= b_in;
+            d_imm_out <= d_imm_in;
+            sel_b_out <= sel_b_in; 
+            read_out <= read_in;
+            write_out <= write_in; 
+            sel_pc_out <= sel_pc_in;
+            branch_op_out <= branch_op_in;
+            sel_mem_out <= sel_mem_in;
+            rf_wren_out <= rf_wren_in;
+            mux_out <= mux_in;
+            op_alu_out <= op_alu_in;
+            next_addr_out <= next_addr_in;
         end if;
     end process ; -- identifier
-
-    a_out <= a_in_reg;
-    b_out <= b_in_reg;
-    d_imm_out <= d_imm_in_reg;
-    sel_b_out <= sel_b_in_reg; 
-    read_out <= read_in_reg;
-    write_out <= write_in_reg; 
-    sel_pc_out <= sel_pc_in_reg;
-    branch_op_out <= branch_op_in_reg;
-    sel_mem_out <= sel_mem_in_reg;
-    rf_wren_out <= rf_wren_in_reg;
-    mux_out <= mux_in_reg;
-    next_addr_out <= next_addr_in_reg;
-
 
 end synth;

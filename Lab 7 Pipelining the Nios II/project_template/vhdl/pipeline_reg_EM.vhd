@@ -29,22 +29,16 @@ begin
     dff : process(clk, reset_n) is 
     begin
         if (reset_n = '0') then 
-            sel_mem_in_reg <= '0';
-            rf_wren_in_reg <= '0';
-            mux_1_in_reg <= (others => '0');
-            mux_2_in_reg <= (others => '0');
+            sel_mem_out <= '0';
+            rf_wren_out <= '0';
+            mux_1_out <= (others => '0');
+            mux_2_out <= (others => '0');
         elsif (rising_edge(clk)) then 
-            sel_mem_in_reg <= sel_mem_in;
-            rf_wren_in_reg <= rf_wren_in;
-            mux_1_in_reg <= mux_1_in;
-            mux_2_in_reg <= mux_2_in;
+            sel_mem_out <= sel_mem_in;
+            rf_wren_out <= rf_wren_in;
+            mux_1_out <= mux_1_in;
+            mux_2_out <= mux_2_in;
         end if;
     end process ; -- identifier
-   
-    sel_mem_out <= sel_mem_in_reg;
-    rf_wren_out <= rf_wren_in_reg;
-    mux_1_out <= mux_1_in_reg;
-    mux_2_out <= mux_2_in_reg;
-
 
 end synth;
